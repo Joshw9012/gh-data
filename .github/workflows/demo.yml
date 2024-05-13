@@ -45,5 +45,7 @@ jobs:
           name: dist-files # when download artifact, this name must be the same name as upload artifact in Build job.
       - name: Output contents
         run: ls # this will list all the files for the artifact
+      - name: Output filename
+        run: echo "${{needs.build.outputs.script-file }}"
       - name: Deploy
         run: echo "Deploying..."
