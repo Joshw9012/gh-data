@@ -28,7 +28,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: dis-files
+          name: dist-files
           path: dist
   deploy:
     needs: build
@@ -37,8 +37,8 @@ jobs:
       - name: Get Build artifacts
         uses: actions/download-artifact@v3
         with:
-          name: dist-files #must be the same name as upload artifact in Build job.
+          name: dist-files # when download artifact, this name must be the same name as upload artifact in Build job.
       - name: Output contents
-        run: ls
+        run: ls # this will list all the files for the artifact
       - name: Deploy
         run: echo "Deploying..."
